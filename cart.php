@@ -15,15 +15,12 @@
 
         // test if all of the array variables are set, this is just a precaution and a good programming practice        
         if(isset($cartKeys) && isset($cartSize) && isset($cartQuantities)) {
-            // when we update we should consider that the value of session total quantity will change
-            // with that we should reinitialize its value to 0 to prepare it for the computation below
-
+            
             $_SESSION['totalQuantity'] = 0;
 
             foreach($cartKeys as $index => $key) {
                 // $index is the index of the form array element and has nothing to do with the flow of our program except to extract the values from these arrays
-                // $key is the index of the item from the arrProducts
-                // we are simply performing a loop and updates the quantity of the session cartItems based on the coordinates that are dynamically produced using this loop
+                // $key  is the index of the item from the arrProductswe are simply performing a loop and updates the quantity of the session cartItems based on the coordinates that are dynamically produced using this loop
                 $_SESSION['cartItems'][$key][$cartSize[$index]] = $cartQuantities[$index];
 
                 // then we re compute the value of the session totalQuantity
@@ -42,7 +39,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
-    <title>Jordan shoe Online Shop | Shopping Cart</title>
+    <title>Jordan shoes Online Shop | Shopping Cart</title>
 </head>
 <body>
     <form method="post">
