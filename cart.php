@@ -1,7 +1,9 @@
 <?php
     session_start();
-    require_once('dataset.php');
-    
+    require'products.php';
+
+
+
     // session total amount must be reinitialize to 0 everytime this page loads so that our computations will work
     $_SESSION['totalAmount'] = 0;
 
@@ -42,15 +44,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css" integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
-    <title>Jordan shoe Online Shop | Shopping Cart</title>
+    <title>Kickz Shop Online Shop | Shopping Cart</title>
 </head>
 <body>
     <form method="post">
         <div class="container">
             <div class="row mt-5">
-                    <div class="col-10">
-                        <img src="img/download.png" alt="">
-                    </div>
+                <div class="col-10">
+                    <img src="img/download.png" alt="">
+                </div>
                 <div class="col-2 text-right">
                     <a href="cart.php" class="btn btn-primary">
                         <i class="fa fa-shopping-cart"></i> Cart
@@ -78,11 +80,7 @@
                         </thead>
                         <tbody>
                             
-                            <!-- this is the part where we assemble our cart intl_get_error_message
-                            we started it by testing out if the cartItems is set, meaning if the user has already purchased something
-                            then we perfom a nested foreach in order to extract all the values we need from our session cartItems
-                            remember that the structure of our session cartitems goes like this
-                            $_SESSION['cartItems'][key][size] = quantity -->
+                            
 
                             <?php if(isset($_SESSION['cartItems'])): ?>
                                 <?php foreach($_SESSION['cartItems'] as $key => $value): ?>
