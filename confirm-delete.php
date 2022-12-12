@@ -35,7 +35,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/admin-panel.css">
-    <title>Dashboard |  Shopping Cart</title>
+    <title>Confirm | ArmYourSelf</title>
 </head>
 <body>
     <div id="throbber" style="display:none; min-height:120px;"></div>
@@ -46,7 +46,8 @@
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">
-                   Jordan Shoe Store
+                    <i class="fa-solid fa-gun"></i>
+                    ArmYourSelf
                 </a>
             </div>
             <!-- Top Menu Items -->
@@ -78,24 +79,36 @@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
+                <?php
+                
+                    if(isset($_GET['k'])){
+                        $_SESSION['k'] = $_GET['k'];
+                    }            
+
+                    if(isset($_POST['btnDelete'])){
+                        require('opencon.php');
+                            $strsql = "DELETE from tbl_products WHERE id =" . $_SESSION['k'];
+                            if(mysqli_query($con,$strsql)){
+                                header("location:addproducts.php");
+                            }
+                        require('closecon.php');
+                    }
+
+                ?>
                 <div class="row" id="main" >
-                    <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>Welcome <?php echo $name; ?>!</h1>
-                    </div>
-                    <div class="col-sm-4 well">
-                        <div class="panel-body">
-                            <h1>Total Products Sold</h1>
-                            <button class="btn btn-primary" type="button">
-                                <?php echo (isset($_SESSION['totalQuantity']) ? $_SESSION['totalQuantity'] : "0"); ?>
-                            </button>
-                        </div>
-                    </div>
+                    <form method="post">
+                        <h1>Are sure you want to delete this product?</h1>
+                        <button type="submit" name="btnDelete">Delete</button>
+                        <a href="addproducts.php" class="btn btn-danger">Cancel</a>
+                    </form>
+                    
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </div>
-    </div>
+        <!-- /#page-wrapper -->
+    </div><!-- /#wrapper -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </body>

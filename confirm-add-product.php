@@ -35,7 +35,7 @@
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/admin-panel.css">
-    <title>Dashboard |  Shopping Cart</title>
+    <title>Confirm | Jordan Shoe Store</title>
 </head>
 <body>
     <div id="throbber" style="display:none; min-height:120px;"></div>
@@ -80,22 +80,20 @@
                 <!-- Page Heading -->
                 <div class="row" id="main" >
                     <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>Welcome <?php echo $name; ?>!</h1>
-                    </div>
-                    <div class="col-sm-4 well">
-                        <div class="panel-body">
-                            <h1>Total Products Sold</h1>
-                            <button class="btn btn-primary" type="button">
-                                <?php echo (isset($_SESSION['totalQuantity']) ? $_SESSION['totalQuantity'] : "0"); ?>
-                            </button>
-                        </div>
+                        <h1>
+                            <?php
+                                echo 'Successfully added the product!<br>';
+                                echo '<a href="addproducts.php" class="btn btn-success">Continue</a>';
+                            ?>
+                        </h1>
                     </div>
                 </div>
                 <!-- /.row -->
             </div>
             <!-- /.container-fluid -->
         </div>
-    </div>
+        <!-- /#page-wrapper -->
+    </div><!-- /#wrapper -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
 </body>
