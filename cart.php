@@ -37,19 +37,28 @@
     <body>
         <form method="post">
             <div class="container">
-                <div class="row mt-5">
-                    <div class="col-10">
-                        <h1><i class="fa-solid fa-gun"></i>ArmYouSelf</h1>
+            <div class="container">
+            <div class="row mt-3">
+                    <div class="col-5">
+                        <img src="img/download.png" alt="">
                     </div>
                     <div class="col-2 text-right">
-                        <a href="cart.php" class="btn btn-primary">
-                            <i class="fa fa-shopping-cart"></i> Cart
-                            <span class="badge badge-light">
-                                <?php echo (isset($_SESSION['totalQuantity']) ? $_SESSION['totalQuantity'] : "0"); ?>
-                            </span>
-                        </a>
-                    </div>            
-                </div>
+                    <a href="cart.php" class="btn btn-primary">
+                        <i class="fa fa-shopping-cart"></i> Cart
+                        <span class="badge bg-light text-dark">
+                            <?php echo (isset($_SESSION['totalQuantity']) ? $_SESSION['totalQuantity'] : "0"); ?>
+                        </span>
+                    </a>
+                            
+                </div>        
+                <div class="col-2 text-right">
+                    <a href="login.php" class="btn btn-secondary">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </a>
+                            
+                </div>          
+            </div>
+            <hr> 
                 <hr>
 
                 <div class="row">
